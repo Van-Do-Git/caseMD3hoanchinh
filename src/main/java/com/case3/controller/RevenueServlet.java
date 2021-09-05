@@ -11,6 +11,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,6 +26,8 @@ public class RevenueServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         String action = request.getParameter("action");
         HttpSession session = request.getSession();
         if (action == null) {
@@ -54,7 +57,9 @@ public class RevenueServlet extends HttpServlet {
         }
     }
 
-    private void showFormAddCategory(HttpServletRequest request, HttpServletResponse response) {
+    private void showFormAddCategory(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         String type = "re";
         List<Icon> iconList = iconService.findAll();
         request.setAttribute("icon", iconList);
@@ -69,7 +74,9 @@ public class RevenueServlet extends HttpServlet {
         }
     }
 
-    private void showFormEditRevenue(HttpServletRequest request, HttpServletResponse response) {
+    private void showFormEditRevenue(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         int id_re = Integer.parseInt(request.getParameter("idre"));
         Revenue revenue = revenueService.findById(id_re);
         request.setAttribute("re", revenue);
@@ -83,7 +90,9 @@ public class RevenueServlet extends HttpServlet {
         }
     }
 
-    private void showRevenue(HttpServletRequest request, HttpServletResponse response) {
+    private void showRevenue(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         Date date = new Date();
         SimpleDateFormat format =
                 new SimpleDateFormat("yyyy.MM.dd");
@@ -122,6 +131,8 @@ public class RevenueServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         String action = request.getParameter("action");
         HttpSession session = request.getSession();
         if (action == null) {
@@ -159,7 +170,9 @@ public class RevenueServlet extends HttpServlet {
         }
     }
 
-    private void showListByMonth(HttpServletRequest request, HttpServletResponse response) {
+    private void showListByMonth(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         Date date = new Date();
@@ -191,7 +204,9 @@ public class RevenueServlet extends HttpServlet {
         }
     }
 
-    private void showListByWeek(HttpServletRequest request, HttpServletResponse response) {
+    private void showListByWeek(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         Date date = new Date();
@@ -223,7 +238,9 @@ public class RevenueServlet extends HttpServlet {
         }
     }
 
-    private void showListByDay(HttpServletRequest request, HttpServletResponse response) {
+    private void showListByDay(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         Date date = new Date();
@@ -255,7 +272,9 @@ public class RevenueServlet extends HttpServlet {
         }
     }
 
-    private void showListByMoney(HttpServletRequest request, HttpServletResponse response) {
+    private void showListByMoney(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         int min = Integer.parseInt(request.getParameter("min"));
         int max = Integer.parseInt(request.getParameter("max"));
         HttpSession session = request.getSession();
@@ -273,7 +292,9 @@ public class RevenueServlet extends HttpServlet {
         }
     }
 
-    private void addNewCategory(HttpServletRequest request, HttpServletResponse response) {
+    private void addNewCategory(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         int idIcon = Integer.parseInt(request.getParameter("idIcon"));
         String nameCate = request.getParameter("nameCate");
         HttpSession session = request.getSession();
@@ -286,7 +307,9 @@ public class RevenueServlet extends HttpServlet {
         }
     }
 
-    private void editRevenue(HttpServletRequest request, HttpServletResponse response) {
+    private void editRevenue(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         Date date = new Date();
         int money = Integer.parseInt(request.getParameter("money"));
         String note = request.getParameter("note");
@@ -302,7 +325,9 @@ public class RevenueServlet extends HttpServlet {
         }
     }
 
-    private void addNewRevenue(HttpServletRequest request, HttpServletResponse response) {
+    private void addNewRevenue(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         Date date = new Date();
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");

@@ -24,6 +24,8 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -39,6 +41,8 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -57,7 +61,9 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
-    private void addIcon(HttpServletRequest request, HttpServletResponse response) {
+    private void addIcon(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         List<Icon> icons = iconService.findAll();
         HttpSession session = request.getSession();
         session.setAttribute("icon",icons);
@@ -76,7 +82,9 @@ public class LoginServlet extends HttpServlet {
     }
 
 
-    private void editStatus(HttpServletRequest request, HttpServletResponse response) {
+    private void editStatus(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         int idUser =Integer.parseInt(request.getParameter("idUser"));
         boolean status = Boolean.parseBoolean(request.getParameter("status"));
         if(status){
@@ -132,6 +140,8 @@ public class LoginServlet extends HttpServlet {
     private void login(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         String username = request.getParameter("userName");
         String password = request.getParameter("password");
         User user = userService.findByUsernameAndPassword(username, password);
@@ -169,7 +179,9 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
-    private void showHomepage(HttpServletRequest request, HttpServletResponse response) {
+    private void showHomepage(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         RequestDispatcher dispatcher = request.getRequestDispatcher("home.jsp");
 
         try {
@@ -180,7 +192,4 @@ public class LoginServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
-
-
 }

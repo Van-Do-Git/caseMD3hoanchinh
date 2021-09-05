@@ -20,55 +20,55 @@ html {
     font-size: 12px;
 }
 
-/*table {*/
-/*    border: 1px solid #ccc;*/
-/*}*/
+table {
+    border: 1px solid #ccc;
+}
 
-/*th {*/
-/*    border: 1px solid #ccc;*/
-/*    background-color: chartreuse;*/
-/*    height: 50px;*/
-/*    width: 128px;*/
-/*}*/
+th {
+    border: 1px solid #ccc;
+    background-color: chartreuse;
+    height: 50px;
+    width: 128px;
+}
 
-/*td {*/
-/*    border: 1px solid #ccc;*/
-/*    text-align: center;*/
-/*    width: 150px;*/
+td {
+    border: 1px solid #ccc;
+    text-align: center;
+    width: 150px;
 
-/*}*/
+}
 
-/*tr {*/
-/*    text-align: center;*/
-/*}*/
+tr {
+    text-align: center;
+}
 
-/*fieldset {*/
-/*    background-color: lightcyan;*/
-/*}*/
+fieldset {
+    background-color: lightcyan;
+}
 
-/*legend {*/
-/*    color: green;;*/
-/*}*/
+legend {
+    color: green;;
+}
 
-/*button {*/
-/*    width: 150px;*/
-/*    background-color: wheat;*/
-/*    height: 30px;*/
-/*    color: black;*/
-/*    text-align: center;*/
-/*}*/
+button {
+    width: 150px;
+    background-color: wheat;
+    height: 30px;
+    color: black;
+    text-align: center;
+}
 
-/*.edit {*/
-/*    background-color: orange;*/
-/*}*/
+.edit {
+    background-color: orange;
+}
 
-/*.delete {*/
-/*    background-color: red;*/
-/*}*/
+.delete {
+    background-color: red;
+}
 
-/*input {*/
-/*    width: 100px;*/
-/*}*/
+input {
+    width: 100px;
+}
 
 #menu {
     height: 30px;
