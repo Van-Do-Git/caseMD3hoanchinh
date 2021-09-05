@@ -1,0 +1,235 @@
+* {
+    box-sizing: border-box;
+    font-family: "Times New Roman", sans-serif;
+    font-size: 14px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+html {
+    font-family: "Lucida Sans", sans-serif;
+    font-size: 12px;
+}
+
+#menu {
+    height: 30px;
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    background-color: #000000;
+    border: 1px solid #CDCDCD;
+    clear: both;
+}
+
+#menu ul, #menu li {
+    padding: 0;
+    margin: 0;
+}
+
+#menu li {
+    position: relative;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+}
+
+#menu li li {
+    position: relative;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#menu li a {
+    height: 30px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    line-height: 30px;
+    background-color: black;
+    color: white;
+}
+
+#menu li a:hover {
+    background-color: red;
+}
+
+#menu li li a {
+    background-color: midnightblue;
+}
+
+#menu li li a:hover {
+    background-color: gold;
+}
+
+#menu ul ul li a {
+    text-align: left;
+    padding-left: 10px;
+}
+
+#menu ul ul {
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    visibility: hidden;
+}
+
+#menu ul li:hover ul {
+    visibility: visible;
+}
+
+button {
+    float: left;
+}
+
+header {
+    background-image: url('https://ngockhangit93com.files.wordpress.com/2016/02/131120hinh-nen-nhung-hoa-tiet-trang-tri-mau-xanh-den-danh-cho-wesite.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-color: #cc3333;
+    color: #ffffff;
+    padding: 15px;
+    height: 15%;
+}
+
+section {
+    background-image: url('http://1.bp.blogspot.com/-rgZxJIA1QNM/U19NPFf_MOI/AAAAAAAAAEU/6DjXySxA5nM/s1600/background-pictures-1104676636.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    color: #ffffff;
+    padding: 15px;
+}
+
+footer {
+    background-image: url('https://ngockhangit93com.files.wordpress.com/2016/02/131120hinh-nen-nhung-hoa-tiet-trang-tri-mau-xanh-den-danh-cho-wesite.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+    height: 15%;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+    width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-m-1 {
+        width: 8.33%;
+    }
+
+    .col-m-2 {
+        width: 16.66%;
+    }
+
+    .col-m-3 {
+        width: 25%;
+    }
+
+    .col-m-4 {
+        width: 33.33%;
+    }
+
+    .col-m-5 {
+        width: 41.66%;
+    }
+
+    .col-m-6 {
+        width: 50%;
+    }
+
+    .col-m-7 {
+        width: 58.33%;
+    }
+
+    .col-m-8 {
+        width: 66.66%;
+    }
+
+    .col-m-9 {
+        width: 75%;
+    }
+
+    .col-m-10 {
+        width: 83.33%;
+    }
+
+    .col-m-11 {
+        width: 91.66%;
+    }
+
+    .col-m-12 {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {
+        width: 8.33%;
+    }
+
+    .col-2 {
+        width: 16.66%;
+    }
+
+    .col-3 {
+        width: 25%;
+    }
+
+    .col-4 {
+        width: 33.33%;
+    }
+
+    .col-5 {
+        width: 41.66%;
+    }
+
+    .col-6 {
+        width: 50%;
+    }
+
+    .col-7 {
+        width: 58.33%;
+    }
+
+    .col-8 {
+        width: 66.66%;
+    }
+
+    .col-9 {
+        width: 75%;
+    }
+
+    .col-10 {
+        width: 83.33%;
+    }
+
+    .col-11 {
+        width: 91.66%;
+    }
+
+    .col-12 {
+        width: 100%;
+    }
+}
