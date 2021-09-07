@@ -69,11 +69,18 @@ window.onclick = function (event) {
         formmonth.style.display = "none";
     }
     if (event.target == formweek) {
-        formweek.style.display = "none"
+        formweek.style.display = "none";
     }
     if(event.target==formmoney){
-        formmoney.style.display = "none"
+        formmoney.style.display = "none";
     }
+    if(event.target==editday){
+        editday.style.display="none";
+    }
+    if(event.target==editmonth){
+        editmonth.style.display="none";
+    }
+
 }
 
 //Vẽ biểu đồ

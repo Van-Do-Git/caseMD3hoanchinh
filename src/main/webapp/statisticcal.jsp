@@ -39,10 +39,10 @@
 </header>
 
 <section class="row">
-    <div style="background-color: aquamarine;height: 65%" class="col-12 col-m-12">
+    <div style="background-color: aquamarine;height: 92%" class="col-12 col-m-12">
         <div>
             <button type="button" onclick="vebieudomien();">Bấm để xem</button>
-            <canvas id="bieudomien" width="200" height="50"></canvas>
+            <canvas id="bieudomien" width="200" height="90" class="col-10 col-m-10"></canvas>
         </div>
         <div style="display: none">
             <c:if test="${map!=null}">

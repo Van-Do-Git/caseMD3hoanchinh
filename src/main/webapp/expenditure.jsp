@@ -18,7 +18,6 @@
     <title>Quản lý tài chính</title>
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-<script type="text/javascript" src="/ModalAndChar.js"></script>
 <body>
 
 <header class="row">
@@ -183,7 +182,7 @@
                         <button type="button">Thêm khoản chi</button>
                     </a>
                 </div>
-                <div class="col-6" style="height: 35%">
+                <div class="col-6" style="height: 40%">
                     <button type="button" onclick="ve();">Biểu đồ chi tiết</button>
                     <canvas id="myChart" style="width:100%;max-width:450px; color: black"></canvas>
 

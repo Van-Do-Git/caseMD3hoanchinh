@@ -145,4 +145,4 @@ GROUP BY month(date_re);
 
 select sum(money_re)
 from revenue
-WHERE month(date_re)=?;
+WHERE year(now()) and month(date_re)=?;

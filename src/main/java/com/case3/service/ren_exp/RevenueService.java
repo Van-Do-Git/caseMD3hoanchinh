@@ -64,7 +64,7 @@ public class RevenueService implements IRenExpService<Revenue> {
                     "group by rC.name_rc";
     private static final String SELECT_SUM_REV_OF_MONTH = "select sum(money_re)\n" +
             "from revenue\n" +
-            "WHERE month(date_re)=?;";
+            "WHERE year(date_re)=year(now()) and month(date_re)=?;";
 
     Connection connection = ConnectionJDBC.getConnection();
     CategoryReService categoryReService = new CategoryReService();

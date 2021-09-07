@@ -68,7 +68,7 @@ public class ExpenditureService implements IRenExpService<Expenditure> {
 
     private static final String SELECT_SUM_EXP_OF_MONTH = "select sum(money_ex)\n" +
             "from expenditure\n" +
-            "WHERE month(date_ex)=?;";
+            "WHERE year(date_ex)=year(now()) and month(date_ex)=?;";
 
 
     Connection connection = ConnectionJDBC.getConnection();
