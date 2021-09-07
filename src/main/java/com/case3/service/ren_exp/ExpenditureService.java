@@ -66,6 +66,11 @@ public class ExpenditureService implements IRenExpService<Expenditure> {
             "  and date_ex = ?\n" +
             "group by name_ec;";
 
+    private static final String SELECT_SUM_EXP_OF_MONTH = "select sum(money_ex)\n" +
+            "from expenditure\n" +
+            "WHERE month(date_ex)=?;";
+
+
     Connection connection = ConnectionJDBC.getConnection();
     CategoryExService categoryExService = new CategoryExService();
 
@@ -289,4 +294,22 @@ public class ExpenditureService implements IRenExpService<Expenditure> {
         return sumMoneyExpenditureCategories;
     }
 
+    public List<Integer> sumExpOfMonth() {
+        List<Integer> listExp = new ArrayList<>();
+        try {
+            PreparedStatement statementExp = connection.prepareStatement(SELECT_SUM_EXP_OF_MONTH);
+            for (int i = 1; i <= 12; i++) {
+                statementExp.setInt(1, i);
+                ResultSet rsExp = statementExp.executeQuery();
+                int sumExp = 0;
+                if (rsExp.next()) {
+                    sumExp = rsExp.getInt(1);
+                }
+                listExp.add(sumExp);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listExp;
+    }
 }

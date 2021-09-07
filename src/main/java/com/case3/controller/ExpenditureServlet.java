@@ -9,6 +9,7 @@ import com.case3.service.category.CategoryExService;
 import com.case3.service.icon.IconService;
 import com.case3.service.limited.LimitedService;
 import com.case3.service.ren_exp.ExpenditureService;
+import com.case3.service.ren_exp.RevenueService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -27,6 +28,7 @@ public class ExpenditureServlet extends HttpServlet {
     CategoryExService categoryExService = new CategoryExService();
     LimitedService limitedService = new LimitedService();
     IconService iconService = new IconService();
+    RevenueService revenueService = new RevenueService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -51,6 +53,9 @@ public class ExpenditureServlet extends HttpServlet {
             case "editexp":
                 showFormEditExpenditure(request, response);
                 break;
+            case "statisticcal":
+                showStatisticcal(request, response);
+                break;
             default:
                 if (session.getAttribute("user") == null) {
                     response.sendRedirect("/homepage");
@@ -59,6 +64,21 @@ public class ExpenditureServlet extends HttpServlet {
                 }
                 break;
 
+        }
+    }
+
+    private void showStatisticcal(HttpServletRequest request, HttpServletResponse response) {
+        List<Integer> listSumEx = expenditureService.sumExpOfMonth();
+        List<Integer> listSumRe = revenueService.sumRevOfMonth();
+        request.setAttribute("listSumEx", listSumEx);
+        request.setAttribute("listSumRe", listSumRe);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/statisticcal.jsp?action=");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -148,7 +168,7 @@ public class ExpenditureServlet extends HttpServlet {
         for (int i = 0; i < listMoney.size(); i++) {
             totalMoney += listMoney.get(i).getMoney();
         }
-        request.setAttribute("map",null);
+        request.setAttribute("map", null);
         request.setAttribute("totalMoney", totalMoney);
         request.setAttribute("listEx", listMoney);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/expenditure.jsp");
@@ -392,11 +412,13 @@ public class ExpenditureServlet extends HttpServlet {
             totalMoney += listMonth.get(i).getMoney();
         }
         Map<String, Integer> map = expenditureService.sumMoneyOfCategoryByMonth(user.getId(), date);
+
         int size = map.size();
         request.setAttribute("map", map);
         request.setAttribute("size", size);
         request.setAttribute("totalMoney", totalMoney);
         request.setAttribute("listEx", listMonth);
+
         session.setAttribute("listCategory", listCategory);
         session.setAttribute("limited", limited);
         try {

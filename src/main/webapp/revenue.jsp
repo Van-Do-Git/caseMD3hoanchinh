@@ -56,6 +56,7 @@
                         <li><a id="week">Theo tuần</a></li>
                         <li><a id="month">Theo tháng</a></li>
                         <li><a id="money">Theo tiền</a></li>
+                        <li><a href="/expenditure?action=statisticcal">Thông kê thu chi</a></li>
                     </ul>
                 </li>
             </ul>
@@ -176,9 +177,9 @@
                         </th>
                     </tr>
                 </table>
-                <div class="col-6">
+                <div class="col-6 col-m-6">
                     <a href="/revenue?action=addre">
-                        <button type="button" class="col-6">Thêm khoản thu</button>
+                        <button type="button">Thêm khoản thu</button>
                     </a>
                 </div>
             </div>
@@ -210,6 +211,7 @@
                 <button type="button" onclick="ve();">Xem biểu đồ</button>
                 <canvas id="myChart" style="width:100%;max-width:450px; color: black"></canvas>
             </div>
+
         </div>
     </div>
 </section>

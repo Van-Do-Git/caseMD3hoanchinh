@@ -22,7 +22,7 @@ public class UserService implements IUserService<User> {
     private static List<Category> listReCate = new ArrayList<>();
 
     static {
-        listExCate.add(new Category("Tien dien"));
+        listExCate.add(new Category("Tiền diện"));
         listExCate.add(new Category("Tien nuoc"));
         listExCate.add(new Category("Tien xang"));
         listReCate.add(new Category("Tien luong"));

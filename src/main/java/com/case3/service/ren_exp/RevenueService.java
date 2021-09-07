@@ -62,6 +62,9 @@ public class RevenueService implements IRenExpService<Revenue> {
                     "from revenue r join revenue_Categories rC on rC.id_rc = r.id_rc\n" +
                     "where rC.id_user = ? and r.date_re=?\n" +
                     "group by rC.name_rc";
+    private static final String SELECT_SUM_REV_OF_MONTH = "select sum(money_re)\n" +
+            "from revenue\n" +
+            "WHERE month(date_re)=?;";
 
     Connection connection = ConnectionJDBC.getConnection();
     CategoryReService categoryReService = new CategoryReService();
@@ -283,5 +286,24 @@ public class RevenueService implements IRenExpService<Revenue> {
             throwables.printStackTrace();
         }
         return sumMoneyRevanueCategories;
+    }
+
+    public List<Integer> sumRevOfMonth() {
+        List<Integer> listRev = new ArrayList<>();
+        try {
+            PreparedStatement statementExp = connection.prepareStatement(SELECT_SUM_REV_OF_MONTH);
+            for (int i = 1; i <= 12; i++) {
+                statementExp.setInt(1, i);
+                ResultSet rsExp = statementExp.executeQuery();
+                int sumRev = 0;
+                if (rsExp.next()) {
+                    sumRev = rsExp.getInt(1);
+                }
+                listRev.add(sumRev);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listRev;
     }
 }

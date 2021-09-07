@@ -25,7 +25,7 @@ create table icon
 create table revenue_Categories
 (
     id_rc   int auto_increment primary key,
-    name_rc varchar(255) not null,
+    name_rc varchar(255) not null check ( name_rc),
     id_icon int          not null,
     id_user int          not null,
     foreign key (id_icon) references icon (id_icon),
@@ -34,7 +34,7 @@ create table revenue_Categories
 create table expenditure_Categories
 (
     id_ec   int auto_increment primary key,
-    name_ec varchar(255) not null,
+    name_ec varchar(255) not null check ( name_ec in ('Hanoi', 'Ho CHi mInh') ),
     id_icon int          not null,
     id_user int          not null,
     foreign key (id_icon) references icon (id_icon),
@@ -132,8 +132,17 @@ where id_user = ?
 group by name_ec;
 
 SELECT eC.name_ec, sum(money_ex)
-                    FROM expenditure e JOIN expenditure_Categories eC ON eC.id_ec = e.id_ec
-                    WHERE id_user = 12 AND month(date_ex)=month(?)
-                    GROUP BY eC.name_ec;
+FROM expenditure e
+         JOIN expenditure_Categories eC ON eC.id_ec = e.id_ec
+WHERE id_user = 12
+  AND month(date_ex) = month(?)
+GROUP BY eC.name_ec;
 
+select month(date_re), sum(money_re)
+from revenue
+WHERE year(now())
+GROUP BY month(date_re);
 
+select sum(money_re)
+from revenue
+WHERE month(date_re)=?;

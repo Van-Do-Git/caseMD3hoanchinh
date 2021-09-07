@@ -8,16 +8,17 @@
   Time: 4:32 CH
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <html>
 <head>
-<%--    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">--%>
+    <%--    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">--%>
     <link rel="stylesheet" href="/style.css">
     <LINK REL="SHORTCUT ICON" HREF="/iconweb.ico">
     <title>Quản lý tài chính</title>
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script type="text/javascript" src="/ModalAndChar.js"></script>
 <body>
 
 <header class="row">
@@ -56,6 +57,7 @@
                         <li><a id="week">Theo tuần</a></li>
                         <li><a id="month">Theo tháng</a></li>
                         <li><a id="money">Theo tiền</a></li>
+                        <li><a href="/expenditure?action=statisticcal">Thông kê thu chi</a></li>
                     </ul>
                 </li>
             </ul>
@@ -178,12 +180,13 @@
                 </table>
                 <div class="col-6">
                     <a href="/expenditure?action=addexp">
-                        <button type="button" class="col-6">Thêm khoản chi</button>
+                        <button type="button">Thêm khoản chi</button>
                     </a>
                 </div>
-                <div class="col-6">
-                    <button type="button" onclick="ve();">Xem biểu đồ</button>
+                <div class="col-6" style="height: 35%">
+                    <button type="button" onclick="ve();">Biểu đồ chi tiết</button>
                     <canvas id="myChart" style="width:100%;max-width:450px; color: black"></canvas>
+
                 </div>
                 <div style="display: none">
                     <c:if test="${map!=null}">
@@ -270,7 +273,6 @@
                     </table>
                 </form>
             </div>
-
         </div>
     </div>
 </section>

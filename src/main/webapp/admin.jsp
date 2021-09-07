@@ -34,7 +34,7 @@
         </tr>
     </table>
 </header>
-<section>
+<section class="row">
 
     <div style="background-color: aquamarine" class="col-12">
         <table style="width: 100%">
